@@ -3,14 +3,13 @@ import type { Config } from 'jest';
 const config: Config = {
   testEnvironment: 'jsdom',
   transform: {
-    '^.+\\.(ts|tsx)$': 'ts-jest',
+    '^.+\\.(ts|tsx)$': ['ts-jest', { useESM: true }],
   },
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/client/src/$1',
+    '^@/(.*)$': '<rootDir>/$1',
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   testPathIgnorePatterns: ['/node_modules/', '/dist/'],
 };
 
 export default config;
-//
