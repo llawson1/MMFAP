@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>European Football Analytics Dashboard - Mailman Media</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <header class="header">
+            <div class="header__brand">
+                <div class="brand-logo">
+                    <h1>European Football Analytics</h1>
+                    <span class="brand-subtitle">Powered by Mailman Media</span>
+                </div>
+                <div class="live-indicator">
+                    <div class="live-dot"></div>
+                    <span>LIVE</span>
+                    <span class="update-count" id="updateCount">47 updates</span>
+                </div>
+            </div>
+            <div class="header__controls">
+                <span class="last-update" id="lastUpdate">Last updated: 12:47 AM</span>
+                <button class="btn btn--secondary theme-toggle" id="themeToggle">🌙</button>
+            </div>
+        </header>
+
+        <!-- Breaking News Banner -->
+        <div class="breaking-news" id="breakingNews">
+            <div class="breaking-news__wrapper">
+                <span class="breaking-tag">BREAKING</span>
+                <div class="news-ticker" id="newsTicker">
+                    <span class="news-item">Wirtz completes Liverpool medical • Newcastle preparing final Isak offer • Arsenal close to Zubimendi</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard__container">
+            <!-- Sidebar Navigation -->
+            <nav class="sidebar" id="sidebar">
+                <div class="sidebar__menu">
+                    <button class="nav-item active" data-page="overview">
+                        <span class="nav-icon">📊</span>
+                        <span class="nav-text">Overview</span>
+                    </button>
+                    <button class="nav-item" data-page="league-tables">
+                        <span class="nav-icon">🏆</span>
+                        <span class="nav-text">League Tables</span>
+                    </button>
+                    <button class="nav-item" data-page="teams-analytics">
+                        <span class="nav-icon">⚽</span>
+                        <span class="nav-text">Teams & Analytics</span>
+                    </button>
+                    <button class="nav-item" data-page="stats-comparison">
+                        <span class="nav-icon">📈</span>
+                        <span class="nav-text">Stats Comparison</span>
+                    </button>
+                    <button class="nav-item" data-page="transfer-hub">
+                        <span class="nav-icon">💰</span>
+                        <span class="nav-text">Transfer Hub</span>
+                    </button>
+                    <button class="nav-item" data-page="champions-league">
+                        <span class="nav-icon">🏅</span>
+                        <span class="nav-text">Champions League</span>
+                    </button>
+                    <button class="nav-item" data-page="live-news">
+                        <span class="nav-icon">📰</span>
+                        <span class="nav-text">Live News</span>
+                    </button>
+                    <button class="nav-item" data-page="advanced-simulator">
+                        <span class="nav-icon">🎯</span>
+                        <span class="nav-text">Advanced Simulator</span>
+                    </button>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- Overview Page -->
+                <div class="page active" id="overview">
+                    <div class="page-header">
+                        <h2>Season Overview</h2>
+                        <p>2025-26 European Football Analytics Dashboard</p>
+                    </div>
+
+                    <!-- Hero Predictions -->
+                    <section class="hero-predictions">
+                        <h3>Top 3 Premier League Predictions</h3>
+                        <div class="predictions-grid">
+                            <div class="prediction-card gold">
+                                <div class="position">1st</div>
+                                <div class="team">Liverpool</div>
+                                <div class="points">90 pts</div>
+                                <div class="confidence">85% confidence</div>
+                            </div>
+                            <div class="prediction-card silver">
+                                <div class="position">2nd</div>
+                                <div class="team">Arsenal</div>
+                                <div class="points">84 pts</div>
+                                <div class="confidence">78% confidence</div>
+                            </div>
+                            <div class="prediction-card bronze">
+                                <div class="position">3rd</div>
+                                <div class="team">Manchester City</div>
+                                <div class="points">81 pts</div>
+                                <div class="confidence">82% confidence</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Executive Metrics -->
+                    <section class="exec-metrics">
+                        <div class="metrics-grid">
+                            <div class="metric-card">
+                                <div class="metric-value">£556.1M</div>
+                                <div class="metric-label">Total Transfer Spending</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">45%</div>
+                                <div class="metric-label">Liverpool Title Odds</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">Newcastle</div>
+                                <div class="metric-label">Most Volatile (45%)</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">47</div>
+                                <div class="metric-label">Live Updates</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Key Storylines -->
+                    <section class="storylines">
+                        <h3>Key Storylines</h3>
+                        <div class="storylines-grid">
+                            <div class="storyline-card">
+                                <h4>Liverpool's Record Investment</h4>
+                                <p>£174.5M spent on Wirtz and Frimpong transforming title chances</p>
+                                <span class="impact high">High Impact</span>
+                            </div>
+                            <div class="storyline-card">
+                                <h4>Newcastle's Contract Crisis</h4>
+                                <p>Isak contract negotiations creating uncertainty in predictions</p>
+                                <span class="impact medium">Medium Impact</span>
+                            </div>
+                            <div class="storyline-card">
+                                <h4>Arsenal's Striker Shortage</h4>
+                                <p>Zubimendi signing addressing midfield but forward line concerns remain</p>
+                                <span class="impact medium">Medium Impact</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Points Progression Chart -->
+                    <section class="points-chart">
+                        <h3>Points Progression</h3>
+                        <div class="chart-container">
+                            <canvas id="pointsChart"></canvas>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- League Tables Page -->
+                <div class="page" id="league-tables">
+                    <div class="page-header">
+                        <h2>League Tables</h2>
+                        <p>Select a league to view current standings and predictions</p>
+                    </div>
+
+                    <div class="league-selector">
+                        <div class="form-group">
+                            <label for="leagueSelect" class="form-label">Select League:</label>
+                            <select class="form-control" id="leagueSelect">
+                                <option value="">Select a league...</option>
+                                <option value="premier-league">Premier League</option>
+                                <option value="la-liga">La Liga</option>
+                                <option value="serie-a">Serie A</option>
+                                <option value="bundesliga">Bundesliga</option>
+                                <option value="ligue-1">Ligue 1</option>
+                            </select>
+                        </div>
+                        <button class="btn btn--primary" id="applyLeague">APPLY</button>
+                    </div>
+
+                    <div class="table-legend">
+                        <div class="legend-item">
+                            <div class="legend-color champions-league"></div>
+                            <span>Champions League</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color europa-league"></div>
+                            <span>Europa League</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color relegation"></div>
+                            <span>Relegation</span>
+                        </div>
+                    </div>
+
+                    <div class="league-table-container" id="leagueTableContainer">
+                        <p class="table-placeholder">Please select a league and click APPLY to view the table</p>
+                    </div>
+                </div>
+
+                <!-- Teams & Analytics Page -->
+                <div class="page" id="teams-analytics">
+                    <div class="page-header">
+                        <h2>Teams & Analytics</h2>
+                        <p>Individual team analysis and scenario modeling</p>
+                    </div>
+
+                    <div class="team-selector">
+                        <div class="form-group">
+                            <label for="teamSelect" class="form-label">Select Team:</label>
+                            <select class="form-control" id="teamSelect">
+                                <option value="">Select a team...</option>
+                                <option value="liverpool">Liverpool</option>
+                                <option value="arsenal">Arsenal</option>
+                                <option value="manchester-city">Manchester City</option>
+                                <option value="chelsea">Chelsea</option>
+                                <option value="newcastle-united">Newcastle United</option>
+                                <option value="manchester-united">Manchester United</option>
+                                <option value="tottenham-hotspur">Tottenham Hotspur</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="team-analysis" id="teamAnalysis">
+                        <div class="analysis-placeholder">Select a team to view detailed analytics</div>
+                    </div>
+
+                    <div class="scenario-controls" id="scenarioControls" style="display: none;">
+                        <h3>Scenario Controls</h3>
+                        <div class="controls-grid">
+                            <div class="control-item">
+                                <label>Wirtz Adaptation Level</label>
+                                <input type="range" min="0" max="100" value="85" id="wirtzAdaptation">
+                                <span id="wirtzValue">85%</span>
+                            </div>
+                            <div class="control-item">
+                                <label>Isak Contract Situation</label>
+                                <select id="isakContract" class="form-control">
+                                    <option value="signed">Contract Signed</option>
+                                    <option value="negotiating">Negotiating</option>
+                                    <option value="rejected">Offer Rejected</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="impact-summary" id="impactSummary"></div>
+                    </div>
+                </div>
+
+                <!-- Stats Comparison Page -->
+                <div class="page" id="stats-comparison">
+                    <div class="page-header">
+                        <h2>Stats Comparison</h2>
+                        <p>Compare players and teams across all major leagues</p>
+                    </div>
+
+                    <div class="comparison-controls">
+                        <div class="player-selectors">
+                            <div class="player-selector">
+                                <label class="form-label">Player 1</label>
+                                <select class="form-control" id="player1Select">
+                                    <option value="">Select player...</option>
+                                    <option value="salah">Mohamed Salah</option>
+                                    <option value="haaland">Erling Haaland</option>
+                                    <option value="saka">Bukayo Saka</option>
+                                    <option value="isak">Alexander Isak</option>
+                                </select>
+                            </div>
+                            <div class="player-selector">
+                                <label class="form-label">Player 2</label>
+                                <select class="form-control" id="player2Select">
+                                    <option value="">Select player...</option>
+                                    <option value="salah">Mohamed Salah</option>
+                                    <option value="haaland">Erling Haaland</option>
+                                    <option value="saka">Bukayo Saka</option>
+                                    <option value="isak">Alexander Isak</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn--primary" id="comparePlayers">Compare</button>
+                    </div>
+
+                    <div class="comparison-results" id="comparisonResults"></div>
+                </div>
+
+                <!-- Transfer Hub Page -->
+                <div class="page" id="transfer-hub">
+                    <div class="page-header">
+                        <h2>Transfer Hub</h2>
+                        <p>Live transfer news and spending analysis</p>
+                    </div>
+
+                    <div class="transfer-grid">
+                        <div class="transfer-feed">
+                            <h3>Live Transfer Feed</h3>
+                            <div class="feed-items" id="transferFeed">
+                                <!-- Content will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        <div class="spending-analysis">
+                            <h3>Transfer Spending</h3>
+                            <div class="chart-container">
+                                <canvas id="spendingChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="major-signings">
+                        <h3>Major Signings</h3>
+                        <div class="signings-grid" id="majorSignings">
+                            <!-- Content will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Champions League Page -->
+                <div class="page" id="champions-league">
+                    <div class="page-header">
+                        <h2>Champions League 2025-26</h2>
+                        <p>36-team format qualification tracker</p>
+                    </div>
+
+                    <div class="cl-format-explanation">
+                        <h3>New 36-Team Format</h3>
+                        <p>The expanded Champions League features 36 teams in a single league table, with each team playing 8 matches.</p>
+                    </div>
+
+                    <div class="qualified-teams">
+                        <h3>Qualified Teams by Country</h3>
+                        <div class="countries-grid">
+                            <div class="country-group">
+                                <h4>England (4 teams)</h4>
+                                <ul>
+                                    <li>Liverpool</li>
+                                    <li>Arsenal</li>
+                                    <li>Manchester City</li>
+                                    <li>Chelsea</li>
+                                </ul>
+                            </div>
+                            <div class="country-group">
+                                <h4>Spain (4 teams)</h4>
+                                <ul>
+                                    <li>Barcelona</li>
+                                    <li>Real Madrid</li>
+                                    <li>Atletico Madrid</li>
+                                    <li>Athletic Bilbao</li>
+                                </ul>
+                            </div>
+                            <div class="country-group">
+                                <h4>Germany (4 teams)</h4>
+                                <ul>
+                                    <li>Bayern Munich</li>
+                                    <li>Borussia Dortmund</li>
+                                    <li>RB Leipzig</li>
+                                    <li>Bayer Leverkusen</li>
+                                </ul>
+                            </div>
+                            <div class="country-group">
+                                <h4>Italy (4 teams)</h4>
+                                <ul>
+                                    <li>Napoli</li>
+                                    <li>AC Milan</li>
+                                    <li>Inter Milan</li>
+                                    <li>Juventus</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live News Page -->
+                <div class="page" id="live-news">
+                    <div class="page-header">
+                        <h2>Live News Feed</h2>
+                        <p>Real-time football news with reliability scoring</p>
+                    </div>
+
+                    <div class="news-filters">
+                        <button class="filter-btn active" data-category="all">All</button>
+                        <button class="filter-btn" data-category="transfers">Transfers</button>
+                        <button class="filter-btn" data-category="contracts">Contracts</button>
+                        <button class="filter-btn" data-category="injuries">Injuries</button>
+                    </div>
+
+                    <div class="news-feed" id="newsFeed">
+                        <!-- Content will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Advanced Simulator Page -->
+                <div class="page" id="advanced-simulator">
+                    <div class="page-header">
+                        <h2>Advanced Transfer Simulator</h2>
+                        <p>Model transfers and see real-time impact on league tables</p>
+                    </div>
+
+                    <div class="simulator-controls">
+                        <div class="transfer-setup">
+                            <h3>Transfer Setup</h3>
+                            <div class="transfer-form">
+                                <div class="form-group">
+                                    <label class="form-label">League</label>
+                                    <select class="form-control" id="simLeague">
+                                        <option value="premier-league">Premier League</option>
+                                        <option value="la-liga">La Liga</option>
+                                        <option value="serie-a">Serie A</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">From Team</label>
+                                    <select class="form-control" id="simFromTeam">
+                                        <option value="">Select team...</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Player</label>
+                                    <select class="form-control" id="simPlayer">
+                                        <option value="">Select player...</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">To Team</label>
+                                    <select class="form-control" id="simToTeam">
+                                        <option value="">Select team...</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Transfer Fee (£M)</label>
+                                    <input type="range" min="0" max="200" value="50" id="transferFee" class="form-control">
+                                    <span id="feeValue">£50M</span>
+                                </div>
+                                <button class="btn btn--primary" id="simulateTransfer">Simulate Transfer</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="simulation-results" id="simulationResults"></div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div class="modal" id="reliabilityModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Reliability Breakdown</h3>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
