@@ -7,7 +7,7 @@ import Dashboard from "@/pages/dashboard";
 import ReliabilityBreakdown from "@/pages/reliability-breakdown";
 import PredictionMethodology from "@/pages/prediction-methodology";
 import PerformanceDashboardPage from "@/pages/performance-dashboard";
-import TeamProfilePage from "@/pages/team-profile";
+import TeamProfilePage from "./client/src/pages/team-profile";
 import YouTubeChannel from "@/pages/youtube-channel";
 import Leagues from "@/pages/leagues";
 import TeamsBrowsePage from "@/pages/teams-browse";
