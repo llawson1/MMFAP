@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { TrendIndicator, StatusBadge, ConfidenceMeter } from "./interactive-elements";
 import { cn } from "@/lib/utils";
+import TeamNavigationUtil from "./team-navigation";
 
 interface TeamCardProps {
   team: {
@@ -47,6 +48,7 @@ interface TeamCardProps {
 }
 
 function TeamCard({ team, view = 'compact', interactive = true, onClick, className = "" }: TeamCardProps) {
+  const handleClick = onClick || (() => TeamNavigationUtil.navigateToTeam(team.name));
   const getPositionChange = () => {
     // Simulate position change for demo
     const change = Math.floor(Math.random() * 5) - 2;
@@ -72,7 +74,7 @@ function TeamCard({ team, view = 'compact', interactive = true, onClick, classNa
           interactive && "hover:shadow-md cursor-pointer",
           className
         )}
-        onClick={onClick}
+        onClick={handleClick}
       >
         <CardContent className="p-3">
           <div className="flex items-center gap-3">
@@ -112,7 +114,7 @@ function TeamCard({ team, view = 'compact', interactive = true, onClick, classNa
           interactive && "hover:shadow-md hover:scale-105 cursor-pointer",
           className
         )}
-        onClick={onClick}
+        onClick={handleClick}
       >
         <CardContent className="p-4">
           <div className="space-y-3">
@@ -200,7 +202,7 @@ function TeamCard({ team, view = 'compact', interactive = true, onClick, classNa
         interactive && "hover:shadow-lg cursor-pointer",
         className
       )}
-      onClick={onClick}
+      onClick={handleClick}
     >
       <CardHeader className="pb-3">
         <div className="flex items-center justify-between">
